@@ -24,7 +24,7 @@ Add the below dependency in your app build.gradle file:
 	
 	    ...
 	    
-	    implementation ('com.github.DevnagriAI:dev-android-sdk:1.1.1@aar') { transitive(true) }
+	    implementation ('com.github.DevnagriAI:dev-android-sdk:1.1.2@aar') { transitive(true) }
 	    
 	}
         
@@ -51,7 +51,7 @@ Initialise the SDK in your application class and add the API_KEY from DevNagri.
 	  
 	      // passing arrays and plurals in init method is optional here, pass them only if defined in strings.xml file
 	  
-          DevNagriTranslationSdk.init(applicationContext, "API_KEY" ,syncTime, strings, arrays, plurals)
+          DevNagriTranslationSDK.init(applicationContext, "API_KEY" ,syncTime, strings, arrays, plurals)
       }
     }
  
@@ -62,7 +62,7 @@ Additionally, you need to inject the SDK in each activity, e.g. by creating a ba
     {
         override fun getDelegate(): AppCompatDelegate 
         {
-           return DevNagriTranslationSdk.fetchAppDelegate(this, super.getDelegate())
+           return DevNagriTranslationSDK.fetchAppDelegate(this, super.getDelegate())
         }
     }
 
@@ -93,7 +93,7 @@ You can use these methods anywhere in your project and these will provide transl
 
 # Get Translation of a Specific String.
 
-    DevNagriTranslationSdk.getTranslationOfString("SampleText"){ translation ->
+    DevNagriTranslationSDK.getTranslationOfString("SampleText"){ translation ->
   	   // use translated text here       
     }
  
@@ -101,7 +101,7 @@ You can use these methods anywhere in your project and these will provide transl
 # Get Translations of an Array of Strings.
 
     val arrayList = arrayListOf ("SampleText1","SampleText2","SampleText3")
-    DevNagriTranslationSdk.getTranslationOfStrings(arrayList){ translations ->
+    DevNagriTranslationSDK.getTranslationOfStrings(arrayList){ translations ->
   	   // use translated text here       
     }
  
@@ -109,7 +109,7 @@ You can use these methods anywhere in your project and these will provide transl
 # Get Translations Of HashMap 
 
     val map = hashMapOf (Pair("A","SampleText1"), Pair("B","SampleText2"), Pair("C","SampleText3") )
-    DevNagriTranslationSdk.getTranslationOfMap(map){ translations ->
+    DevNagriTranslationSDK.getTranslationOfMap(map){ translations ->
        // use translated map here
     }
  

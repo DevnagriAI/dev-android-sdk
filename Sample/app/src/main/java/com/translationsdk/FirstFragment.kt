@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.devnagritranslationsdk.DevNagriTranslationSdk
+import com.devnagritranslationsdk.DevNagriTranslationSDK
 import com.translationsdk.databinding.FragmentFirstBinding
 import java.util.*
 import kotlin.collections.HashMap
@@ -46,7 +46,7 @@ private var _binding: FragmentFirstBinding? = null
 
         binding.buttonSecond.setOnClickListener {
 
-            val supportableLanguages:HashMap<String,String> = DevNagriTranslationSdk.getAllSupportableLanguages()
+            val supportableLanguages:HashMap<String,String> = DevNagriTranslationSDK.getAllSupportableLanguages()
             val listOfKeys=supportableLanguages.keys.toTypedArray()
 
 
@@ -56,7 +56,7 @@ private var _binding: FragmentFirstBinding? = null
                 .setTitle(getString(R.string.change_app_language))
                 .setPositiveButton(getString(R.string.change)) { dialog, _ ->
                     dialog.dismiss()
-                    DevNagriTranslationSdk.updateAppLocale(activity as MainActivity,locale)
+                    DevNagriTranslationSDK.updateAppLocale(activity as MainActivity,locale)
                 }
                 .setSingleChoiceItems(
                     listOfKeys,

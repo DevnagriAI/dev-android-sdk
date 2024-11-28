@@ -1,7 +1,7 @@
 package com.translationsdk
 
 import android.app.Application
-import com.devnagritranslationsdk.DevNagriTranslationSdk
+import com.devnagritranslationsdk.DevNagriTranslationSDK
 
 
 class BaseApplication : Application() {
@@ -14,7 +14,7 @@ class BaseApplication : Application() {
 
 
         val API_KEY="devnagri_eb93ac18b65d11ecb762021b05a03360"
-        DevNagriTranslationSdk.init(applicationContext,API_KEY,strings,arrays)
+        DevNagriTranslationSDK.init(applicationContext,API_KEY,strings,arrays)
 
 
     }
