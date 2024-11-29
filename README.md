@@ -51,7 +51,7 @@ Initialise the SDK in your application class and add the API_KEY from DevNagri.
 	  
 	      // passing arrays and plurals in init method is optional here, pass them only if defined in strings.xml file
 	  
-          DevNagriTranslationSDK.init(applicationContext, "API_KEY" ,syncTime, strings, arrays, plurals)
+          DevnagriTranslationSDK.init(applicationContext, "API_KEY" ,syncTime, strings, arrays, plurals)
       }
     }
  
@@ -62,7 +62,7 @@ Additionally, you need to inject the SDK in each activity, e.g. by creating a ba
     {
         override fun getDelegate(): AppCompatDelegate 
         {
-           return DevNagriTranslationSDK.fetchAppDelegate(this, super.getDelegate())
+           return DevnagriTranslationSDK.fetchAppDelegate(this, super.getDelegate())
         }
     }
 
@@ -75,7 +75,7 @@ In case you don't want to use the system language, you can set a different langu
 
 
     val locale = Locale("hi");
-    DevNagriTranslationSDK.updateAppLocale(activityContext , locale);
+    DevnagriTranslationSDK.updateAppLocale(activityContext , locale);
 
 Please note that you will get the english text back if your device language is english or you have not set any specific language for the SDK. To get the translation in Hindi, Please update app locale to Hindi as per above method.
 
@@ -84,7 +84,7 @@ Please note that you will get the english text back if your device language is e
 You can get supported languages for the SDK using this method.
 This will return hashmap of language name and language code
 
-	val supportedLangauges =  DevNagriTranslationSDK.getAllSupportableLanguages()
+	val supportedLangauges =  DevnagriTranslationSDK.getAllSupportableLanguages()
  
 
 # Translate String, List and Map on runtime
@@ -93,7 +93,7 @@ You can use these methods anywhere in your project and these will provide transl
 
 # Get Translation of a Specific String.
 
-    DevNagriTranslationSDK.getTranslationOfString("SampleText"){ translation ->
+    DevnagriTranslationSDK.getTranslationOfString("SampleText"){ translation ->
   	   // use translated text here       
     }
  
@@ -101,7 +101,7 @@ You can use these methods anywhere in your project and these will provide transl
 # Get Translations of an Array of Strings.
 
     val arrayList = arrayListOf ("SampleText1","SampleText2","SampleText3")
-    DevNagriTranslationSDK.getTranslationOfStrings(arrayList){ translations ->
+    DevnagriTranslationSDK.getTranslationOfStrings(arrayList){ translations ->
   	   // use translated text here       
     }
  
@@ -109,7 +109,7 @@ You can use these methods anywhere in your project and these will provide transl
 # Get Translations Of HashMap 
 
     val map = hashMapOf (Pair("A","SampleText1"), Pair("B","SampleText2"), Pair("C","SampleText3") )
-    DevNagriTranslationSDK.getTranslationOfMap(map){ translations ->
+    DevnagriTranslationSDK.getTranslationOfMap(map){ translations ->
        // use translated map here
     }
  
