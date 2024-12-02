@@ -36,7 +36,7 @@ Add the below dependency in your app build.gradle file:
  
 # Configuration
 
-Initialise the SDK in your application class and add the API_KEY from DevNagri. 
+Initialise the SDK in your application class and add the API_KEY from Devnagri. 
 
     class MainApplication : Application() {
     
@@ -114,6 +114,33 @@ You can use these methods anywhere in your project and these will provide transl
     }
  
  
+
+# Get Translations Of JSON Object
+
+   // This method is used to convert the entire JSON object to requested language
+   // ignoreKeys -> Send a list of strings that you want to ignore during the conversion process
+
+    val jsonObject = JSONObject()
+    jsonObject.put("sample_key", "Sample Text")
+    jsonObject.put("sample_key_one", "Sample Text1")
+
+    val ignoreKeys: ArrayList<String> = ArrayList()
+    ignoreKeys.add("_id")
+    ignoreKeys.add("unit_id")
+
+    DevnagriTranslationSDK.getTranslationOfJSON(jsonObject, ignoreKeys) {
+	//use translated JSON Object here
+    }
+
+# For Modular Approach
+   - Please add DevnagriSDK dependency in each module level gradle file.
+   - If you have multiple modules in your application, 
+   then in each module's base activity override the below method.
+
+	override fun getDelegate(): AppCompatDelegate {
+		return DevnagriTranslationSDK.fetchAppDelegate(this, super.getDelegate())
+	}
+
 # Usage
 
 Translations can be used as usual in layouts:
@@ -125,4 +152,3 @@ And inside code:
 
     val text = findViewById(R.id.text_id) as TextView
     text.setText(R.string.translation_key)
-
